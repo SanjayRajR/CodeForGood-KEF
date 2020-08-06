@@ -3,3 +3,4 @@
 Guys Just put your emails here, so we can all connect.  
 Sanjay Raj R : reachsanjayraj@gmail.com  
 Vineetha Jami: vineetha.jami1028@gmail.com  
+Lavish Nagar: lavishdinesh.nagar99@gmail.com
