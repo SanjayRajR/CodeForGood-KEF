@@ -24,10 +24,12 @@ exports.create = (req, res) => {
     const trainingcontent = new Trainingcontent(req.body);
     trainingcontent.save((err, data) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({
                 error: errorHandler(err)
             });
         }
+        console.log(data);
         res.json({ data });
     });
 };

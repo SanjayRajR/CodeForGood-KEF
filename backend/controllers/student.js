@@ -33,3 +33,14 @@ exports.createStudent = (req, res) => {
 exports.viewStudent = (req, res) => {
     return res.json(req.student);
 };
+
+exports.studentsBySchool = (req, res) => {
+    Student.find({school_id : req.body.sid}).exec((err, students) => {
+        if (err) {
+            return res.status(400).json({
+                error: 'Students not found'
+            });
+        }
+        res.json(students);
+    });
+};
