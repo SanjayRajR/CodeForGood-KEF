@@ -61,6 +61,7 @@ exports.list = (req, res) => {
                 error: errorHandler(err)
             });
         }
+        console.log(data);
         res.json(data);
     });
 };

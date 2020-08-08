@@ -24,6 +24,7 @@ const TrainingcontentSchema = new mongoose.Schema(
             required: true,
         }
         
+        
     },
 
     { timestamps: true }

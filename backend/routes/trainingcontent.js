@@ -12,7 +12,7 @@ const { requireSignin, isAuth, isEmployee } = require("../controllers/auth");
 const { userById } = require("../controllers/user");
 
 router.get("/trainingcontent/:trainingcontentId", read);
-router.post("/trainingcontent/create/:userId", requireSignin, isAuth, isEmployee, create);
+router.post("/trainingcontent/create/:userId", isEmployee, create);
 router.delete(
     "/trainingcontent/:trainingcontentId/:userId",
     requireSignin,

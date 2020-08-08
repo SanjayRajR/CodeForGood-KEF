@@ -69,7 +69,7 @@ exports.isAuth = (req, res, next) => {
 exports.isEmployee = (req, res, next) => {
     if (req.profile.role === 0 || req.profile.role === 1 ) {
         return res.status(403).json({
-            error: "Employee resourse! Access denied"
+            error: "Employee resource! Access denied"
         });
     }
     next();
@@ -78,7 +78,7 @@ exports.isEmployee = (req, res, next) => {
 exports.isSchool = (req, res, next) => {
     if (req.profile.role === 0 || req.profile.role === 2 ) {
         return res.status(403).json({
-            error: "School resourse! Access denied"
+            error: "School resource! Access denied"
         });
     }
     next();
@@ -87,7 +87,7 @@ exports.isSchool = (req, res, next) => {
 exports.isTeacher = (req, res, next) => {
     if (req.profile.role === 1 || req.profile.role === 2 ) {
         return res.status(403).json({
-            error: "Teacher resourse! Access denied"
+            error: "Teacher resource! Access denied"
         });
     }
     next();

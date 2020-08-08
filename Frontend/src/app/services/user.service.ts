@@ -58,6 +58,13 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + "/trainingcategory/create/" + localStorage.getItem('_id'), data);
   }
 
+  getCategory(){
+    return this.http.get(environment.apiBaseUrl + "/trainingcategories");
+  }
 
+  addModule(module){
+    console.log(module);
+    return this.http.post(environment.apiBaseUrl + '/trainingcontent/create/' + localStorage.getItem('_id'), module)
+  }
 
 }

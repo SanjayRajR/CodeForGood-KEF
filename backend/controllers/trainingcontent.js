@@ -20,6 +20,7 @@ exports.read = (req, res) => {
 };
 
 exports.create = (req, res) => {
+    console.log("In req", req.body);
     const trainingcontent = new Trainingcontent(req.body);
     trainingcontent.save((err, data) => {
         if (err) {
@@ -48,6 +49,7 @@ exports.remove = (req, res) => {
 
 
 exports.list = (req, res) => {
+    console.log("Inside list");
        Trainingcontent.find()
         .populate('trainingcategory')
         .exec((err, trainingcontents) => {
@@ -56,6 +58,7 @@ exports.list = (req, res) => {
                     error: 'Trainingcontents not found'
                 });
             }
+            console.log(trainingcontents);
             res.json(trainingcontents);
         });
 };
