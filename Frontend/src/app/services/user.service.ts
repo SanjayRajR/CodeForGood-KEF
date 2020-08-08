@@ -14,7 +14,10 @@ export class UserService {
 
   postUser(user, role){
     const data = {
-      'user' : user,
+      'name' : user.name,
+      'email':user.Email,
+      'password':user.password,
+      'phone':user.phone,
       'role' : role
     }
     console.log(user);
