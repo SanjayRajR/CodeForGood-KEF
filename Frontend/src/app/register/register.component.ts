@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   user;
   role;
   student;
+  school;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -39,8 +40,13 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  submitSchoolForm(form: NgForm){
+  submitStudentForm(form: NgForm){
     this.student = form.form.value;
     console.log(this.student);
+  }
+
+  submitSchoolForm(form: NgForm){
+    this.school = form.form.value;
+    console.log(this.school);
   }
 }
