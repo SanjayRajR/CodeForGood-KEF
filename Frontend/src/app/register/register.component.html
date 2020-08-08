@@ -1,4 +1,5 @@
-<div id="content">
+<!-- <ng-container>
+  <div id="content">
     <div class="card mx-auto">
       <form name="myForm" #ref="ngForm" (ngSubmit)="submitForm(ref)">
         <div class="card-body">
@@ -9,15 +10,7 @@
                 <label class="col-form-label">Name</label>
               </div>
               <div class="form-group col-md-3">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="form-control"
-                  placeholder="Name"
-                  ngModel
-                  required
-                />
+                <input type="text" name="name" id="name" class="form-control" placeholder="Name" ngModel required />
               </div>
 
               <div class="form-group row">
@@ -25,13 +18,7 @@
                   <label for="Email" class="col-form-label">Email address</label>
                 </div>
                 <div class="form-group col-md-9">
-                  <input
-                    type="email"
-                    name="Email"
-                    id="Email"
-                    class="form-control"
-                    ngModel
-                  />
+                  <input type="email" name="Email" id="Email" class="form-control" ngModel />
                 </div>
               </div>
 
@@ -39,17 +26,127 @@
                 <label for="n" class="col-form-label">Password</label>
               </div>
               <div class="form-group col-md-3">
-                <input
-                  type="password"
-                  name="password"
-                  id="n"
-                  class="form-control"
-                  ngModel
-                />
+                <input type="password" name="password" id="n" class="form-control" ngModel />
               </div>
             </div>
+
+
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        <div class="card-text">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="register-btn">
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-container> -->
+
+<ng-container *ngIf="role === 0">
+  <!-- <ng-container> -->
+  <div id="content">
+    <div class="card mx-auto">
+      <form name="myForm" #ref="ngForm" (ngSubmit)="submitSchoolForm(ref)">
+        <div class="card-body">
+          <h1 class="card-title text-center">Register</h1>
+          <div class="card-text">
+            <div class="form-group row">
+              <div class="form-group col-md-3">
+                <label class="col-form-label">Name</label>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Name" ngModel required />
+              </div>
+
+              <div class="form-group row">
+                <div class="form-group col-md-3">
+                  <label class="col-form-label">Roll Number</label>
+                </div>
+                <div class="form-group col-md-9">
+                  <input type="text" name="student_id" id="student_id" class="form-control" ngModel />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="form-group col-md-3">
+                  <label class="col-form-label">Class</label>
+                </div>
+                <div class="form-group col-md-9">
+                  <input type="number" name="class" id="class" class="form-control" ngModel />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="form-group col-md-3">
+                  <label class="col-form-label">Section</label>
+                </div>
+                <div class="form-group col-md-9">
+                  <input type="text" name="section" id="section" class="form-control" ngModel />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="form-group col-md-3">
+                  <label class="col-form-label">Percentage</label>
+                </div>
+                <div class="form-group col-md-9">
+                  <input type="text" name="percentage" id="percentage" class="form-control" ngModel />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        <div class="card-text">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="register-btn">
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-container>
+
+<!-- <ng-container *ngIf="role === 1"> -->
+  <ng-container>
+    <div id="content">
+      <div class="card mx-auto">
+        <form name="myForm" #ref="ngForm" (ngSubmit)="submitForm(ref)">
+          <div class="card-body">
+            <h1 class="card-title text-center">School Register</h1>
+            <div class="card-text">
+              <div class="form-group row">
+                <div class="form-group col-md-3">
+                  <label class="col-form-label">School Name</label>
+                </div>
+                <div class="form-group col-md-3">
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Name" ngModel required />
+                </div>
   
-              
+                <div class="form-group row">
+                  <div class="form-group col-md-3">
+                    <label for="email" class="col-form-label">School Email address</label>
+                  </div>
+                  <div class="form-group col-md-9">
+                    <input type="email" name="Email" id="Email" class="form-control" ngModel />
+                  </div>
+                </div>
+  
+                <div class="form-group col-md-3">
+                  <label for="n" class="col-form-label">Password</label>
+                </div>
+                <div class="form-group col-md-3">
+                  <input type="password" name="password" id="n" class="form-control" ngModel />
+                </div>
+              </div>
+  
+  
               <div class="col-md-3"></div>
             </div>
           </div>
@@ -62,5 +159,5 @@
           </div>
         </form>
       </div>
-  </div>
-  
+    </div>
+</ng-container>

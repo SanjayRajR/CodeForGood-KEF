@@ -12,6 +12,8 @@ export class RegisterComponent implements OnInit {
 
   serverErrorMessages;
   user;
+  role;
+  student;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,7 +22,6 @@ export class RegisterComponent implements OnInit {
 
   submitForm(form: NgForm){
     this.user = form.form.value;
-
     this.userService.postUser(this.user).subscribe(
       res => {
         this.router.navigateByUrl('/sigin');
@@ -36,5 +37,10 @@ export class RegisterComponent implements OnInit {
         //   this.serverErrorMessages = 'Something went wrong.Please contact admin.';
       }
     );
+  }
+
+  submitSchoolForm(form: NgForm){
+    this.student = form.form.value;
+    console.log(this.student);
   }
 }
