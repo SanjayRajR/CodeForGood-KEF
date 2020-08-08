@@ -1,6 +1,3 @@
-const formidable = require('formidable');
-const _ = require('lodash');
-const fs = require('fs');
 const Trainingcontent = require('../models/trainingcontent');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
@@ -23,29 +20,14 @@ exports.read = (req, res) => {
 };
 
 exports.create = (req, res) => {
-    let form = new formidable.IncomingForm();
-    form.keepExtensions = true;
-    form.parse(req, (err, fields) => {
-        const { name, description, trainingcategory } = fields;
-
-        if (!name || !description || !trainingcategory) {
+    const trainingcontent = new Trainingcontent(req.body);
+    trainingcontent.save((err, data) => {
+        if (err) {
             return res.status(400).json({
-                error: 'All fields are required'
+                error: errorHandler(err)
             });
         }
-
-        let trainingcontent = new Trainingcontent(fields);
-
-       
-        trainingcontent.save((err, result) => {
-            if (err) {
-                console.log('TRAININGCONTENT CREATE ERROR ', err);
-                return res.status(400).json({
-                    error: errorHandler(err)
-                });
-            }
-            res.json(result);
-        });
+        res.json({ data });
     });
 };
 
@@ -63,23 +45,6 @@ exports.remove = (req, res) => {
     });
 };
 
-exports.update = (req, res) => {
-    let form = new formidable.IncomingForm();
-    form.keepExtensions = true;
-    form.parse(req, (err, fields) => {
-        
-        let trainingcontent = req.trainingcontent;
-        trainingcontent = _.extend(trainingcontent, fields);
-        trainingcontent.save((err, result) => {
-            if (err) {
-                return res.status(400).json({
-                    error: errorHandler(err)
-                });
-            }
-            res.json(result);
-        });
-    });
-};
 
 
 exports.list = (req, res) => {

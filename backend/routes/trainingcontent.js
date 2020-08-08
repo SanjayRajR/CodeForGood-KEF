@@ -6,7 +6,6 @@ const {
     trainingcontentById,
     read,
     remove,
-    update,
     list,
 } = require("../controllers/trainingcontent");
 const { requireSignin, isAuth, isEmployee } = require("../controllers/auth");
@@ -20,13 +19,6 @@ router.delete(
     isAuth,
     isEmployee,
     remove
-);
-router.put(
-    "/trainingcontent/:trainingcontentId/:userId",
-    requireSignin,
-    isAuth,
-    isEmployee,
-    update
 );
 
 router.get("/trainingcontents", list);
