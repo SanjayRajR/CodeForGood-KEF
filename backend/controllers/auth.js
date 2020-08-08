@@ -4,19 +4,21 @@ const expressJwt = require("express-jwt"); // for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
 
 exports.signup = (req, res) => {
-    const user = new User(req.body);
-    user.save((err, user) => {
-        if (err) {
-            return res.status(400).json({
-                error: errorHandler(err)
-            });
-        }
-        user.salt = undefined;
-        user.hashed_password = undefined;
-        res.json({
-            user
-        });
-    });
+    console.log('here', req.body);
+    return res;
+    // const user = new User(req.body);
+    // user.save((err, user) => {
+    //     if (err) {
+    //         return res.status(400).json({
+    //             error: errorHandler(err)
+    //         });
+    //     }
+    //     user.salt = undefined;
+    //     user.hashed_password = undefined;
+    //     res.json({
+    //         user
+    //     });
+    // });
 };
 
 exports.signin = (req, res) => {

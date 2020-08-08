@@ -1,0 +1,68 @@
+<!-- <ng-container *ngIf="!role">
+    <h1>Welcome To KFE Home Page</h1>
+</ng-container> -->
+
+<!-- <ng-container *ngIf="role === 0"> -->
+    <ng-container>
+    <div id="teacherHome">
+        <h2 class="text-center">Welcome Teacher</h2>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="Training image">
+                        <div class="card-body">
+                          <h5 class="card-title">Training Modules</h5>
+                          <a href="/home" class="btn btn-primary">Train</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="Test image">
+                        <div class="card-body">
+                          <h5 class="card-title">Test Yoursef</h5>
+                          <a href="/home" class="btn btn-primary">Go</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="Student Image">
+                        <div class="card-body">
+                          <h5 class="card-title">Add Student</h5>
+                          <a href="/home" class="btn btn-primary">Add</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="Query image">
+                        <div class="card-body">
+                          <h5 class="card-title">Start a Query</h5>
+                          <a href="/home" class="btn btn-primary">Add Query</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</ng-container>
+
+<ng-container *ngIf="role === 1">
+    <div id="schoolHome">
+        <div class="">
+            <h2 class="text-center">Welcome School</h2>
+            <div class="container"></div>
+        </div>
+        
+    </div>
+</ng-container>
+
+<ng-container *ngIf="role === 2">
+    <div id="employeeHome">
+        <h2 class="text-center">Welcome Employee</h2>
+    </div>
+</ng-container>
