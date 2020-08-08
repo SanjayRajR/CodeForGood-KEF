@@ -9,7 +9,8 @@ exports.signup = (req, res) => {
         'name': req.body.user.name,
         'email' : req.body.user.Email,
         'hashed_password' : req.body.user.password,
-        'phone' : req.body.user.phone
+        'phone' : req.body.user.phone, 
+        'role' : req.body.role
     }
     const user = new User(data);
     user.save((err, user) => {
