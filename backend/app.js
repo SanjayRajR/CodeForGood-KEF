@@ -11,7 +11,8 @@ const authRoutes = require("./routes/auth");
 const studentRoutes = require('./routes/student');
 const trainingcategoryRoutes = require('./routes/trainingcategory');
 const trainingcontentRoutes = require('./routes/trainingcontent');
-
+const queryRoutes = require('./routes/query');
+const userRoutes = require('./routes/user');
 // app
 const app = express();
 
@@ -35,6 +36,8 @@ app.use("/api", authRoutes);
 app.use("/api", studentRoutes);
 app.use('/api', trainingcategoryRoutes);
 app.use('/api', trainingcontentRoutes);
+app.use('/api', queryRoutes);
+app.use('/api', userRoutes);
 
 const port = process.env.PORT || 8000;
 
