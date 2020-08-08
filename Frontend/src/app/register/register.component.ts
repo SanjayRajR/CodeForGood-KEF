@@ -22,9 +22,9 @@ export class RegisterComponent implements OnInit {
 
   submitForm(form: NgForm){
     this.user = form.form.value;
-    this.userService.postUser(this.user).subscribe(
+    this.userService.postUser(this.user, 2).subscribe(
       res => {
-        this.router.navigateByUrl('/sigin');
+        this.router.navigateByUrl('/signin');
         form.resetForm();
       },
       err => {

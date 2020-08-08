@@ -12,9 +12,13 @@ export class UserService {
 
   //Http Methods
 
-  postUser(user){
+  postUser(user, role){
+    const data = {
+      'user' : user,
+      'role' : role
+    }
     console.log(user);
-    return this.http.post(environment.apiBaseUrl + '/signup', user);
+    return this.http.post(environment.apiBaseUrl + '/signup', data);
   }
 
 

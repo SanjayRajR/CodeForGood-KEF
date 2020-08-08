@@ -5,23 +5,30 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 
 exports.signup = (req, res) => {
     console.log('here', req.body);
-    // const user = new User(req.body);
-    // user.save((err, user) => {
-    //     if (err) {
-    //         return res.status(400).json({
-    //             error: errorHandler(err)
-    //         });
-    //     }
-    //     user.salt = undefined;
-    //     user.hashed_password = undefined;
-    //     res.json({
-    //         user
-    //     });
-    // });
+    const data = {
+        'name': req.body.user.name,
+        'email' : req.body.user.Email,
+        'hashed_password' : req.body.user.password,
+        'phone' : req.body.user.phone
+    }
+    const user = new User(data);
+    user.save((err, user) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            });
+        }
+        user.salt = undefined;
+        user.hashed_password = undefined;
+        res.json({
+            user
+        });
+    });
 };
 
 exports.signin = (req, res) => {
     // find the user based on email
+    console.log("In sign in", req.body);
     const { email, password } = req.body;
     User.findOne({ email }, (err, user) => {
         if (err || !user) {
