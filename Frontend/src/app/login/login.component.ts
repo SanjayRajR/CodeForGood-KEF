@@ -9,6 +9,8 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+    role;
+    user;
   //inject Router object
   constructor(
     private router: Router,
@@ -40,7 +42,11 @@ export class LoginComponent implements OnInit {
           //update user status in Login Service
           this.ls.LoggedInUsername = res['username'];
           this.ls.isLoggedIn = true;
+          this.user = res['user'];
+          this.role = this.user.role;
 
+          localStorage.setItem('role', this.role);
+          localStorage.setItem('_id', this.user._id);
           //navigate to dashboard component
           this.router.navigateByUrl('/home');
         }

@@ -1,8 +1,8 @@
-<!-- <ng-container *ngIf="!role">
+<ng-container *ngIf="!role">
     <h1>Welcome To KFE Home Page</h1>
-</ng-container> -->
+</ng-container>
 
-<ng-container *ngIf="role === 0">
+<ng-container *ngIf="role === '0'">
     <!-- <ng-container> -->
     <div id="teacherHome">
         <h2 class="text-center">Welcome Teacher</h2>
@@ -51,7 +51,7 @@
 
 </ng-container>
 
-<ng-container *ngIf="role === 1">
+<ng-container *ngIf="role === '1'">
     <!-- <ng-container> -->
     <div id="schoolHome">
         <div class="text-center">
@@ -92,8 +92,8 @@
     </div>
 </ng-container>
 
-<!-- <ng-container *ngIf="role === 2"> -->
-    <ng-container>
+<ng-container *ngIf="role === '2'">
+    <!-- <ng-container> -->
     <div id="employeeHome">
         <div class="text-center">
             <h2>Welcome Employee</h2>

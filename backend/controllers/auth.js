@@ -4,6 +4,7 @@ const expressJwt = require("express-jwt"); // for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
 
 exports.signup = (req, res) => {
+    console.log(req.body);
     const user = new User(req.body);
     user.save((err, user) => {
         if (err) {
@@ -41,7 +42,7 @@ exports.signin = (req, res) => {
         res.cookie("t", token, { expire: new Date() + 9999 });
         // return response with user and token to frontend client
         const { _id, name, email, role, phone} = user;
-        return res.json({ token, user: { _id, email, name, role, phone }, message :"success" });
+        return res.json({ token, user: { _id, email, name, role, phone }, message :"success"});
     });
 };
 
@@ -91,3 +92,9 @@ exports.isTeacher = (req, res, next) => {
     }
     next();
 };
+
+
+exports.userProfile = (req, res, next) =>{
+    console.log("hello");
+    console.log("inside user profile", req);
+}

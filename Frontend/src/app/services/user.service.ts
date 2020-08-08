@@ -13,12 +13,25 @@ export class UserService {
   //Http Methods
 
   postUser(user, role){
-    const data = {
+    var  data = {};
+    if(localStorage.getItem('role') === "1"){
+      data = {
       'name' : user.name,
-      'email':user.Email,
+      'email':user.email,
       'password':user.password,
       'phone':user.phone,
-      'role' : role
+      'role' : role,
+      'school_id': localStorage.getItem('_id')
+      }
+    }
+    else{
+      data = {
+        'name' : user.name,
+        'email':user.email,
+        'password':user.password,
+        'phone':user.phone,
+        'role' : role
+      }
     }
     console.log(user);
     return this.http.post(environment.apiBaseUrl + '/signup', data);
