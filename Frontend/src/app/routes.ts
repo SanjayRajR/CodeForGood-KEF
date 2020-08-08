@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
-import { CategoriesComponent } from './training/categories/categories.component'
+import { CategoriesComponent } from './training/categories/categories.component';
+import { AddModulesComponent } from './training/add-modules/add-modules.component';
 
 export const appRoutes: Routes = [
     {
@@ -16,6 +17,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'categories', component: CategoriesComponent
+    },
+    {
+        path: 'addModules', component: AddModulesComponent
     },
     {
         path: '', redirectTo: '/signin', pathMatch: 'full'

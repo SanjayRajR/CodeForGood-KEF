@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { CategoriesComponent } from './training/categories/categories.component';
+import { AddModulesComponent } from './training/add-modules/add-modules.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CategoriesComponent } from './training/categories/categories.component'
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    AddModulesComponent
   ],
   imports: [
     BrowserModule,
