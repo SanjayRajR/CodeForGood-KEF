@@ -51,6 +51,13 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + '/student/create/'+ teacherID, data);
   }
 
+  postCategory(category){
+    const data = {
+      'name' : category
+    }
+    return this.http.post(environment.apiBaseUrl + "/trainingcategory/create/" + localStorage.getItem('_id'), data);
+  }
+
 
 
 }

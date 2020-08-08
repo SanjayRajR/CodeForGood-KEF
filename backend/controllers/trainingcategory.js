@@ -15,6 +15,7 @@ exports.trainingcategoryById = (req, res, next, id) => {
 };
 
 exports.create = (req, res) => {
+    console.log("Inside create", req.body);
     const trainingcategory = new Trainingcategory(req.body);
     trainingcategory.save((err, data) => {
         if (err) {
