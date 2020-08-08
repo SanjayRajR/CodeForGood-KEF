@@ -37,6 +37,20 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + '/signup', data);
   }
 
+  postStudent(student){
+    const data = {
+      'school_id': localStorage.getItem('school_id'), 
+      'name': student.name, 
+      'class': student.class, 
+      'section': student.section, 
+      'student_id': student.student_id,
+      'percentage': student.percentage
+    }
+    const teacherID = localStorage.getItem('_id')
+    console.log(data);
+    return this.http.post(environment.apiBaseUrl + '/student/create/'+ teacherID, data);
+  }
+
 
 
 }

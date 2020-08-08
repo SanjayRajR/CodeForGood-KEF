@@ -41,6 +41,14 @@ export class RegisterComponent implements OnInit {
   submitStudentForm(form: NgForm){
     this.student = form.form.value;
     console.log(this.student);
+    this.userService.postStudent(this.student).subscribe(
+      res=>{
+        this.router.navigateByUrl('/home');
+      },
+      err=>{
+        console.log(err);
+      }
+    )
   }
 
   submitSchoolForm(form: NgForm){

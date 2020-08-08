@@ -5,7 +5,7 @@ const {isTeacher, requireSignin, isAuth} = require("../controllers/auth");
 const {userById} =  require("../controllers/user")
 
 const {createStudent, viewStudent, studentById} =  require("../controllers/student")
-router.post("/student/create/:userId",requireSignin, isAuth, isTeacher, createStudent);
+router.post("/student/create/:userId", isTeacher, createStudent);
 router.get("/student/view_student/:userId/:studentId",requireSignin, isAuth, isTeacher, viewStudent);
 
 router.param('studentId', studentById);

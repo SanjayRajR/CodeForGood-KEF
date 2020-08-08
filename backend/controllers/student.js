@@ -3,6 +3,7 @@ const Student = require("../models/student");
 const { errorHandler } = require("../helpers/dbErrorHandler");
 
 exports.studentById = (req, res, next, id) => {
+    console.log(id);
     Student.findById(id).exec((err, student) => { //find should always be followed by exec.
         if (err || !student) {
             return res.status(400).json({
@@ -16,9 +17,11 @@ exports.studentById = (req, res, next, id) => {
 
 
 exports.createStudent = (req, res) => {
+    console.log(req.body);
     const student = new Student(req.body);
     student.save((err, student) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({
                 error: errorHandler(err)
             });

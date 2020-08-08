@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit {
           this.ls.isLoggedIn = true;
           this.user = res['user'];
           this.role = this.user.role;
-
           localStorage.setItem('role', this.role);
           localStorage.setItem('_id', this.user._id);
+          localStorage.setItem('school_id', this.user.school_id);
           //navigate to dashboard component
           this.router.navigateByUrl('/home');
         }
