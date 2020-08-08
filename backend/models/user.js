@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const uuidv1 = require("uuid/v1");
+const { ObjectId } = mongoose.Schema;
 
 const userSchema = new mongoose.Schema(
     {
@@ -25,11 +26,14 @@ const userSchema = new mongoose.Schema(
             type: Number,
             required: true
         },
-        role: {
+        role: { // 0 => teacher, 1 => school, 2 => employee 
             type: Number,
             default: 0
         },
-
+        school_id: {
+            type: String ,
+            default: null,
+        }
     },
     { timestamps: true }
 );

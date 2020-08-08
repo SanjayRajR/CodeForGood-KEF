@@ -4,15 +4,7 @@ const expressJwt = require("express-jwt"); // for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
 
 exports.signup = (req, res) => {
-    console.log('here', req.body);
-    const data = {
-        'name': req.body.user.name,
-        'email' : req.body.user.Email,
-        'hashed_password' : req.body.user.password,
-        'phone' : req.body.user.phone, 
-        'role' : req.body.role
-    }
-    const user = new User(data);
+    const user = new User(req.body);
     user.save((err, user) => {
         if (err) {
             return res.status(400).json({
@@ -29,7 +21,6 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
     // find the user based on email
-    console.log("In sign in", req.body);
     const { email, password } = req.body;
     User.findOne({ email }, (err, user) => {
         if (err || !user) {
@@ -50,7 +41,7 @@ exports.signin = (req, res) => {
         res.cookie("t", token, { expire: new Date() + 9999 });
         // return response with user and token to frontend client
         const { _id, name, email, role, phone} = user;
-        return res.json({ token, user: { _id, email, name, role, phone } });
+        return res.json({ token, user: { _id, email, name, role, phone }, message :"success" });
     });
 };
 
@@ -74,10 +65,28 @@ exports.isAuth = (req, res, next) => {
     next();
 };
 
-exports.isAdmin = (req, res, next) => {
-    if (req.profile.role === 0) {
+exports.isEmployee = (req, res, next) => {
+    if (req.profile.role === 0 || req.profile.role === 1 ) {
         return res.status(403).json({
-            error: "Admin resourse! Access denied"
+            error: "Employee resourse! Access denied"
+        });
+    }
+    next();
+};
+
+exports.isSchool = (req, res, next) => {
+    if (req.profile.role === 0 || req.profile.role === 2 ) {
+        return res.status(403).json({
+            error: "School resourse! Access denied"
+        });
+    }
+    next();
+};
+
+exports.isTeacher = (req, res, next) => {
+    if (req.profile.role === 1 || req.profile.role === 2 ) {
+        return res.status(403).json({
+            error: "Teacher resourse! Access denied"
         });
     }
     next();

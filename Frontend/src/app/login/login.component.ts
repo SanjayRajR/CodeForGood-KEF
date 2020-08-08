@@ -23,29 +23,34 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(ngFormObj: NgForm) {
-    console.log(ngFormObj);
     let userObj = ngFormObj.value;
-    // console.log(userObj);
       this.ls.login(userObj).subscribe((res) => {
         if (res['message'] == 'invalid username') {
-          alert('invalid username..plz try again');
+          alert('invalid username..please try again');
           ngFormObj.reset();
         }
         if (res['message'] == 'invalid password') {
-          alert('invalid password..plz try again');
+          alert('invalid password..please try again');
           ngFormObj.reset();
         }
         if (res['message'] == 'success') {
           //store token in local storage
           localStorage.setItem('signedJwtToken', res['token']);
-
+            
           //update user status in Login Service
           this.ls.LoggedInUsername = res['username'];
           this.ls.isLoggedIn = true;
 
           //navigate to dashboard component
-          this.router.navigate(['./', res['username']]);
+          this.router.navigateByUrl('/home');
         }
-      });
+        else{
+            console.log(res);
+        }
+      }, 
+      (err)=>{
+          console.log("error",err);
+      }
+      );
     }
 }
