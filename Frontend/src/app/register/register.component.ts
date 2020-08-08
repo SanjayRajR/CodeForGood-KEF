@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +16,11 @@ export class RegisterComponent implements OnInit {
   role;
   student;
   school;
-  constructor(private userService: UserService, private router: Router) { }
+  teacher;
+  constructor(private userService: UserService, private ls: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('role');
   }
 
 
@@ -31,11 +34,6 @@ export class RegisterComponent implements OnInit {
       err => {
 
         console.log("error", err);
-        // if (err.status === 422) {
-        //   this.serverErrorMessages = err.error.join('<br/>');
-        // }
-        // else
-        //   this.serverErrorMessages = 'Something went wrong.Please contact admin.';
       }
     );
   }
@@ -43,10 +41,43 @@ export class RegisterComponent implements OnInit {
   submitStudentForm(form: NgForm){
     this.student = form.form.value;
     console.log(this.student);
+    this.userService.postStudent(this.student).subscribe(
+      res=>{
+        this.router.navigateByUrl('/home');
+      },
+      err=>{
+        console.log(err);
+      }
+    )
   }
 
   submitSchoolForm(form: NgForm){
     this.school = form.form.value;
     console.log(this.school);
+    this.userService.postUser(this.school, 1).subscribe(
+      res => {
+        this.router.navigateByUrl('/signin');
+        form.resetForm();
+      },
+      err => {
+
+        console.log("error", err);
+      }
+    );
+  }
+
+  submitTeacherForm(form: NgForm){
+    this.teacher = form.form.value;
+    console.log(this.teacher);
+    this.userService.postUser(this.teacher, 0).subscribe(
+      res => {
+        this.router.navigateByUrl('/signin');
+        form.resetForm();
+      },
+      err => {
+
+        console.log("error", err);
+      }
+    );
   }
 }

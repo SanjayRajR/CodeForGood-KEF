@@ -1,8 +1,8 @@
-<!-- <ng-container *ngIf="!role">
+<ng-container *ngIf="!role">
     <h1>Welcome To KFE Home Page</h1>
-</ng-container> -->
+</ng-container>
 
-<ng-container *ngIf="role === 0">
+<ng-container *ngIf="role === '0'">
     <!-- <ng-container> -->
     <div id="teacherHome">
         <h2 class="text-center">Welcome Teacher</h2>
@@ -51,7 +51,7 @@
 
 </ng-container>
 
-<ng-container *ngIf="role === 1">
+<ng-container *ngIf="role === '1'">
     <!-- <ng-container> -->
     <div id="schoolHome">
         <div class="text-center">
@@ -92,8 +92,8 @@
     </div>
 </ng-container>
 
-<!-- <ng-container *ngIf="role === 2"> -->
-    <ng-container>
+<ng-container *ngIf="role === '2'">
+    <!-- <ng-container> -->
     <div id="employeeHome">
         <div class="text-center">
             <h2>Welcome Employee</h2>
@@ -113,7 +113,7 @@
                             <i class="fas fa-cogs card-img-top fa-5x"></i>
                             <div class="card-body">
                               <h5 class="card-title">Add Training Categories</h5>
-                              <a href="/home" class="btn btn-primary">Add</a>
+                              <a href="/categories" class="btn btn-primary">Add</a>
                             </div>
                           </div> 
                     </div>

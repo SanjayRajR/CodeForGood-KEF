@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { LoginService } from '../../services/login.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,19 +11,10 @@ import { UserService } from '../../services/user.service';
 export class DashboardComponent implements OnInit {
   userDetails;
   role;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private ls: LoginService) { }
 
   ngOnInit(): void {
-    // this.userService.getUserProfile().subscribe(
-    //   res => {
-    //     this.role = res['role'];
-    //     console.log(this.role);
-    //     this.userDetails = res['user'];
-    //   },
-    //   err => { 
-    //     console.log(err);
-    //   }
-    // );
+    this.role = localStorage.getItem('role');
+    }
   }
 
-}

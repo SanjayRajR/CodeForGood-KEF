@@ -6,7 +6,7 @@ const { requireSignin, isAuth, isEmployee } = require('../controllers/auth');
 const { userById } = require('../controllers/user');
 
 router.get('/trainingcategory/:trainingcategoryId', read);
-router.post('/trainingcategory/create/:userId', requireSignin, isAuth, isEmployee, create);
+router.post('/trainingcategory/create/:userId', isEmployee, create);
 
 router.get('/trainingcategories', list);
 
