@@ -1,6 +1,7 @@
 <div id="content">
     <div class="card mx-auto">
       <form name="myForm" #ref="ngForm" (ngSubmit)="submitForm(ref)">
+        
         <div class="card-body">
           <h1 class="card-title text-center">Register</h1>
           <div class="card-text">
@@ -8,21 +9,18 @@
               <div class="form-group col-md-3">
                 <label class="col-form-label">Name</label>
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-9">
                 <input
                   type="text"
                   name="name"
                   id="name"
                   class="form-control"
-                  placeholder="Name"
                   ngModel
                   required
                 />
               </div>
-
-              <div class="form-group row">
                 <div class="form-group col-md-3">
-                  <label for="Email" class="col-form-label">Email address</label>
+                  <label for="Email" class="col-form-label">Email</label>
                 </div>
                 <div class="form-group col-md-9">
                   <input
@@ -33,12 +31,11 @@
                     ngModel
                   />
                 </div>
-              </div>
 
               <div class="form-group col-md-3">
                 <label for="n" class="col-form-label">Password</label>
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-9">
                 <input
                   type="password"
                   name="password"
@@ -47,17 +44,28 @@
                   ngModel
                 />
               </div>
-            </div>
-  
+              <div class="form-group col-md-3">
+                <label for="n" class="col-form-label">Phone</label>
+              </div>
+              <div class="form-group col-md-9">
+                <input
+                  type="string"
+                  name="phone"
+                  id="n"
+                  class="form-control"
+                  ngModel
+                />
+              </div>
               
               <div class="col-md-3"></div>
             </div>
           </div>
-          <div class="card-text">
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary" id="register-btn">
+            <div class="card-text">
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary" id="register-btn">
                 Register
-              </button>
+                </button>
+              </div>
             </div>
           </div>
         </form>
