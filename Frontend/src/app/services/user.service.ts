@@ -67,4 +67,20 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + '/trainingcontent/create/' + localStorage.getItem('_id'), module)
   }
 
+  createQuery(query){
+    console.log(query);
+    return this.http.post(environment.apiBaseUrl + "/query/create/" + localStorage.getItem("_id"), query);
+  }
+
+  getQueries(){
+    return this.http.get(environment.apiBaseUrl + "/query/list/" + localStorage.getItem('_id'));
+  }
+
+  addResponse(res, queryID){
+    const response = {
+      'response' : res
+    }
+    console.log(response);
+    return this.http.post(environment.apiBaseUrl + "/query/respond/" + localStorage.getItem("_id") + "/" + queryID, response);
+  }
 }

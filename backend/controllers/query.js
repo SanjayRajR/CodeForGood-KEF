@@ -3,6 +3,7 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 var q_id = null;
 
 exports.queryById = (req, res, next, id) => {
+    console.log(id);
     q_id = id;
     Query.findById(id).exec((err, query) => {
         if (err || !query) {
@@ -16,13 +17,16 @@ exports.queryById = (req, res, next, id) => {
 };
 
 exports.createQuery = (req, res) => {
+    console.log("inside query", req.body);
     const query = new Query(req.body);
     query.save((err, query) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({
                 error: errorHandler(err)
             });
         }
+        console.log(res);
         res.json({ query });
     });
 };
@@ -41,10 +45,12 @@ exports.read = (req, res) => {
 exports.querylist = (req, res) => {
     Query.find().exec((err, query) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({
                 error: errorHandler(err)
             });
         }
+        console.log(query)
         res.json(query);
     });
 };

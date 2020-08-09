@@ -4,6 +4,8 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { CategoriesComponent } from './training/categories/categories.component';
 import { AddModulesComponent } from './training/add-modules/add-modules.component';
+import { QueryComponent } from "./query/query.component";
+import { Component } from '@angular/core';
 
 export const appRoutes: Routes = [
     {
@@ -20,6 +22,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'addModules', component: AddModulesComponent
+    },
+    {
+        path: 'createQuery', component: QueryComponent
     },
     {
         path: '', redirectTo: '/signin', pathMatch: 'full'

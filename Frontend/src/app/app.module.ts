@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { CategoriesComponent } from './training/categories/categories.component';
 import { AddModulesComponent } from './training/add-modules/add-modules.component';
+import { QueryComponent } from './query/query.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddModulesComponent } from './training/add-modules/add-modules.componen
     RegisterComponent,
     DashboardComponent,
     CategoriesComponent,
-    AddModulesComponent
+    AddModulesComponent,
+    QueryComponent
   ],
   imports: [
     BrowserModule,
