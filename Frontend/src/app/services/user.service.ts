@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
+import { env } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -76,11 +77,26 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl + "/query/list/" + localStorage.getItem('_id'));
   }
 
+  getContents(){
+    return this.http.get(environment.apiBaseUrl + '/trainingcontents');
+  }
+
   addResponse(res, queryID){
     const response = {
       'response' : res
     }
     console.log(response);
     return this.http.post(environment.apiBaseUrl + "/query/respond/" + localStorage.getItem("_id") + "/" + queryID, response);
+  }
+
+  getSchools(){
+    return this.http.get(environment.apiBaseUrl + "/list/schools/" + localStorage.getItem('_id'));
+  }
+
+  getStudents(){
+    const schoolID = {
+      'school_id' : localStorage.getItem('_id')
+    }
+    return this.http.post(environment.apiBaseUrl + '/school/students', schoolID);
   }
 }

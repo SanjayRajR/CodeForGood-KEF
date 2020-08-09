@@ -35,7 +35,7 @@ exports.viewStudent = (req, res) => {
 };
 
 exports.studentsBySchool = (req, res) => {
-    Student.find({school_id : req.body.sid}).exec((err, students) => {
+    Student.find({school_id : req.body.school_id}).exec((err, students) => {
         if (err) {
             return res.status(400).json({
                 error: 'Students not found'

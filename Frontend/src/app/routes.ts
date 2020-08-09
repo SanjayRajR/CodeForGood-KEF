@@ -6,6 +6,9 @@ import { CategoriesComponent } from './training/categories/categories.component'
 import { AddModulesComponent } from './training/add-modules/add-modules.component';
 import { QueryComponent } from "./query/query.component";
 import { TestComponent } from "./test/test.component";
+import { SchoolsComponent } from "./schools/schools.component";
+import { ViewModelsComponent } from "./view-models/view-models.component";
+import { StudentDetailsComponent } from "./student-details/student-details.component"
 import { Component } from '@angular/core';
 
 export const appRoutes: Routes = [
@@ -29,6 +32,15 @@ export const appRoutes: Routes = [
     },
     {
         path: 'test', component: TestComponent
+    },
+    {
+        path: 'schools', component: SchoolsComponent
+    },
+    {
+        path: 'viewModules', component: ViewModelsComponent
+    },
+    {
+        path: 'student', component: StudentDetailsComponent
     },
     {
         path: '', redirectTo: '/signin', pathMatch: 'full'

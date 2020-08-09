@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     this.user = form.form.value;
     this.userService.postUser(this.user, 2).subscribe(
       res => {
-        this.router.navigateByUrl('/signin');
+        this.router.navigateByUrl('/home');
         form.resetForm();
       },
       err => {
