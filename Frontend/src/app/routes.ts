@@ -5,6 +5,7 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { CategoriesComponent } from './training/categories/categories.component';
 import { AddModulesComponent } from './training/add-modules/add-modules.component';
 import { QueryComponent } from "./query/query.component";
+import { TestComponent } from "./test/test.component";
 import { Component } from '@angular/core';
 
 export const appRoutes: Routes = [
@@ -25,6 +26,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'createQuery', component: QueryComponent
+    },
+    {
+        path: 'test', component: TestComponent
     },
     {
         path: '', redirectTo: '/signin', pathMatch: 'full'

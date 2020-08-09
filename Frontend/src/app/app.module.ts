@@ -14,6 +14,7 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { CategoriesComponent } from './training/categories/categories.component';
 import { AddModulesComponent } from './training/add-modules/add-modules.component';
 import { QueryComponent } from './query/query.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { QueryComponent } from './query/query.component';
     DashboardComponent,
     CategoriesComponent,
     AddModulesComponent,
-    QueryComponent
+    QueryComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
