@@ -14,12 +14,18 @@
                                 <a href="content.url"><h5>{{  content.url }}</h5></a>
                               </div>
                             
-                            </div>
-                          </div>
+                                </div>
+                                <ng-container *ngIf="role === '0'">
+                                    <button type="button" class="btn btn-primary">Mark as Completed</button>
+                                </ng-container>
+                                </div>
+                            
+                            
                     </div>
                 </ng-container>
             </div>
         </div>
     </div>
 </ng-container>
+
 
